@@ -56,3 +56,43 @@ body {
   font-size: 50px;
   line-height: 1.3;
 }
+
+.copy {
+  color: #989898;
+  font-size: 15px;
+}
+
+.social {
+  display: flex;
+
+  &__item {
+    margin-right: 18px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    display: flex;
+    @include area;
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 6px 2px rgba(#fff, 0.8);
+    }
+
+    &::after {
+      left: 50%;
+      width: 45px;
+      transform: translate(-50%, -50%);
+    }
+
+    svg {
+      width: 32px;
+      height: 32px;
+      fill: $green;
+    }
+  }
+}

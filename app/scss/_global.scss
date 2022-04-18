@@ -37,6 +37,7 @@ body {
 }
 
 .btn {
+  width: 190px;
   font-weight: 700;
   color: #fff;
   background-color: $red;
@@ -48,4 +49,10 @@ body {
   &:hover {
     background-color: #d34137;
   }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.3;
 }

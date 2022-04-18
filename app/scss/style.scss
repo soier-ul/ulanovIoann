@@ -3,6 +3,7 @@
 @import 'reset';
 @import 'libs';
 @import 'global';
+@import 'keyframes';
 
 .header {
 
@@ -165,5 +166,58 @@
     &:hover {
       color: $green;
     }
+  }
+}
+
+.hero {
+  background-repeat: no-repeat;
+  background-size: 44%;
+  background-position: right 50%;
+
+  &__inner {
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__content {
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  &__line {
+    background-color: $black-600;
+    padding: 20px 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &:hover {
+      .hero__line-text {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  &__line-text {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 700;
+    display: inline-block;
+    padding-left: 100%;
+    animation: line 20s linear infinite;
   }
 }

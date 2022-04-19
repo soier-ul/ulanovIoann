@@ -153,9 +153,9 @@
               Проходите обучение как вам удобно — в группе выходного дня, по вечерам или онлайн
             </p>
 
-            <button class="hero__btn btn">
+            <a class="hero__btn btn" href="#form">
               Записаться
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -381,6 +381,51 @@
       </div>
     </section>
 
+    <section class="connection" style="background-image: url(images/decor/connection-car.png);" id="form">
+      <div class="container">
+        <div class="connection__inner">
+          <h2 class="connection__title title">
+            Свяжитесь с нами!
+          </h2>
+
+          <form class="connection__form" action="#">
+            <h3 class="connection__form-descr">
+              Оставьте свои контактные данные
+            </h3>
+
+            <div class="connection__inputs">
+              <label class="connection__label">
+                <span class="sr-only">Введите ваше имя</span>
+                <input class="connection__input" type="text" name="name" placeholder="Имя" required>
+                <span class="connection__input-line"></span>
+              </label>
+
+              <label class="connection__label">
+                <span class="sr-only">Введите свой номер телефона</span>
+                <input class="connection__input" type="tel" name="phone" placeholder="Телефон" required>
+                <span class="connection__input-line"></span>
+              </label>
+            </div>
+
+            <div class="connection__agreement">
+              <label class="connection__label-checkbox">
+                <input class="connection__input-checkbox" type="checkbox" required>
+                <span class="connection__checkbox"></span>
+
+                <p class="connection__agreement-text">
+                  Я согласен <a class="connection__agreement-link" href="#">с политикой конфиденциальности</a>
+                </p>
+              </label>
+            </div>
+
+            <button class="connection__btn btn" type="submit">
+              Отправить заявку
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -479,7 +524,6 @@
       </div>
     </div>
   </footer>
-
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwQ4uBcopveu_15RS2-ETdatvkUpEZv38&callback=initMap"
     async defer>

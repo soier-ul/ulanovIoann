@@ -45,6 +45,8 @@ body {
   border-radius: 9px;
   border: 2px solid $red;
   transition: background-color 0.2s ease;
+  @include line-clamp(1);
+  text-align: center;
 
   &:hover {
     background-color: #d34137;

@@ -15,6 +15,15 @@ body {
 
 .main {
   flex-grow: 1;
+  padding-top: 178px;
+
+  @include max-w($md) {
+    padding-top: 138px;
+  }
+
+  @include max-w($xs) {
+    padding-top: 136px;
+  }
 }
 
 .sr-only {
@@ -241,7 +250,7 @@ body {
   @include max-w($md) {
     padding: 50px;
   }
-  
+
   @include max-w($xs) {
     max-width: 100%;
     padding: 15px;
@@ -638,4 +647,15 @@ body {
   &--active {
     transform: translateX(0);
   }
+}
+
+.swiper-pagination-current {
+  color: $red;
+  font-size: 20px;
+}
+
+.swiper-pagination {
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
 }

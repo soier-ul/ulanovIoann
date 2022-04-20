@@ -70,12 +70,14 @@ $(function () {
   });
 
   const teamSwiper = new Swiper('.team__swiper', {
-    slidesPerView: 1,
-    spaceBetween: 20,
+    // slidesPerView: 4,
     loop: true,
-    
+    centeredSlides: true,
+    spaceBetween: 20,
+
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
+      type: "fraction",
     },
 
     navigation: {
@@ -84,7 +86,7 @@ $(function () {
     },
   });
 
-  $('.burger').on('click', function() {
+  $('.burger').on('click', function () {
     $('.burger').toggleClass('burger--active');
     $('.menu-mobile').toggleClass('menu-mobile--active');
 

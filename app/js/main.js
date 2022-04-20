@@ -1,5 +1,19 @@
 $(function () {
 
+  $('#form').on('submit', function () {
+    $.ajax({
+      type: "POST",
+      url: "mail/mail.php",
+      data: $(this).serialize()
+    }).done(function () {
+      $('.overlay').toggleClass('overlay--active');
+      $('.form-shipped').toggleClass('form-shipped--active');
+      $(this).find('input').val('');
+      $('#form').trigger('reset');
+    });
+    return false;
+  });
+
   $('.header__dropdown-button').on('click', function () {
     $('.header__dropdown-list').toggleClass('header__dropdown-list--active');
 
@@ -38,6 +52,58 @@ $(function () {
     }, 800);
   });
 
+  $('.header__btn').on('click', function () {
+    $('.overlay').toggleClass('overlay--active');
+    $('.form-header').toggleClass('form-header--active');
+  });
+
+  const modalOverlay = document.querySelector('.overlay');
+  const modalItem = document.querySelectorAll('.form-header');
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target == modalOverlay) {
+      modalOverlay.classList.remove('overlay--active');
+      modalItem.forEach((el) => {
+        el.classList.remove('form-header--active');
+      });
+    }
+  });
+
+  const teamSwiper = new Swiper('.team__swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  $('.burger').on('click', function() {
+    $('.burger').toggleClass('burger--active');
+    $('.menu-mobile').toggleClass('menu-mobile--active');
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.burger, .menu-mobile')) {
+        $('.menu-mobile').removeClass('menu-mobile--active');
+      }
+    });
+  });
+
+  const addressesSwiper = new Swiper('.addresses__swiper', {
+    slidesPerView: 1,
+    centeredSlides: true,
+
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
+  });
 });
 
 function initMap() {

@@ -20,7 +20,7 @@
             </a>
 
             <ul class="header__main-list">
-              <li class="header__main-item">
+              <li class="header__main-item header__main-item--location">
                 <div class="header__dropdown">
                   <button class="header__dropdown-button">
                     Выберите адрес
@@ -83,6 +83,10 @@
             <button class="header__btn btn">
               Заказать звонок
             </button>
+
+            <button class="burger">
+              <span class="burger__row"></span>
+            </button>
           </div>
         </div>
       </div>
@@ -132,10 +136,196 @@
                 </a>
               </li>
             </ul>
+
+            <div class="header__dropdown header__dropdown--mobile">
+              <button class="header__dropdown-button">
+                Выберите адрес
+              </button>
+
+              <ul class="header__dropdown-list">
+                <li class="header__dropdown-item">
+                  <button class="header__dropdown-btn">
+                    Ул. Ушинского, 5–1
+                  </button>
+                </li>
+                <li class="header__dropdown-item">
+                  <button class="header__dropdown-btn">
+                    Ул. Руднева, 22–1
+                  </button>
+                </li>
+                <li class="header__dropdown-item">
+                  <button class="header__dropdown-btn">
+                    Ул. Бабушкина, 119
+                  </button>
+                </li>
+                <li class="header__dropdown-item">
+                  <button class="header__dropdown-btn">
+                    Ул. Репищева, 14
+                  </button>
+                </li>
+                <li class="header__dropdown-item">
+                  <button class="header__dropdown-btn">
+                    Пр. Солидарности, 11–1
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <a class="header__bottom-tel" href="tel:8129999999">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-phone"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-mobile">
+        <div class="menu-mobile__content">
+          <ul class="menu-mobile__list">
+            <li class="menu-mobile__item">
+              <a class="menu-mobile__item-link" href="#">
+                Категории
+              </a>
+            </li>
+            <li class="menu-mobile__item">
+              <a class="menu-mobile__item-link" href="#">
+                Филиалы
+              </a>
+            </li>
+            <li class="menu-mobile__item">
+              <a class="menu-mobile__item-link" href="#">
+                Преподаватели
+              </a>
+            </li>
+            <li class="menu-mobile__item">
+              <a class="menu-mobile__item-link" href="#">
+                Инструкторы
+              </a>
+            </li>
+            <li class="menu-mobile__item">
+              <a class="menu-mobile__item-link" href="#">
+                Наш автопарк
+              </a>
+            </li>
+            <li class="menu-mobile__item">
+              <a class="menu-mobile__item-link" href="#">
+                Наш автодром
+              </a>
+            </li>
+            <li class="menu-mobile__item">
+              <a class="menu-mobile__item-link" href="#">
+                Отзывы
+              </a>
+            </li>
+            <li class="menu-mobile__item">
+              <a class="menu-mobile__item-link" href="#">
+                Контакты
+              </a>
+            </li>
+          </ul>
+
+          <ul class="menu-mobile__social social">
+            <li class="social__item">
+              <a class="social__link" target="_blank" href="https://www.instagram.com/">
+                <svg>
+                  <use xlink:href="images/sprite.svg#icon-instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" target="_blank" href="https://vk.com/">
+                <svg>
+                  <use xlink:href="images/sprite.svg#icon-vk"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" target="_blank" href="https://www.facebook.com/">
+                <svg>
+                  <use xlink:href="images/sprite.svg#icon-facebook"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+
+          <div class="menu-mobile__links">
+            <a class="menu-mobile__link" href="tel:8129999999">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-phone"></use>
+              </svg>
+              (812) 999–99–99
+            </a>
+            <a class="menu-mobile__link" href="tel:8121111111">
+              (812) 111–11–119
+            </a>
+
+            <a class="menu-mobile__link" href="mailto:info@asp.ru">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-message"></use>
+              </svg>
+              info@asp.ru
+            </a>
           </div>
         </div>
       </div>
     </nav>
+
+    <div class="overlay">
+      <form class="form form-header" name="form" id="form">
+        <!-- <input type="hidden" name="admin_email[]" value="ulanovus@mail.ru"> -->
+        <h3 class="form__descr">
+          Оставьте свои контактные данные
+        </h3>
+
+        <div class="form__inputs">
+          <label class="form__label">
+            <span class="sr-only">Введите ваше имя</span>
+            <input class="form__input" type="text" name="name" placeholder="Имя" required>
+            <span class="form__input-line"></span>
+          </label>
+
+          <label class="form__label">
+            <span class="sr-only">Введите свой номер телефона</span>
+            <input class="form__input" type="text" name="phone" data-validate-field="tel" placeholder="Телефон"
+              required>
+            <span class="form__input-line"></span>
+          </label>
+        </div>
+
+        <div class="form__agreement">
+          <label class="form__label-checkbox">
+            <input class="form__input-checkbox" type="checkbox" required>
+            <span class="form__checkbox"></span>
+
+            <span class="form__agreement-text">
+              Я согласен <a class="form__agreement-link" href="#">с политикой конфиденциальности</a>
+            </span>
+          </label>
+        </div>
+
+        <button class="form__btn btn" type="submit">
+          Отправить заявку
+        </button>
+      </form>
+
+      <div class="form-shipped">
+        <div class="form-shipped__inner">
+          <span class="form-shipped__icon">
+            <svg>
+              <use xlink:href="images/sprite.svg#icon-ok"></use>
+            </svg>
+          </span>
+          <h3 class="form-shipped__descr">
+            Ваша заявка отправлена!
+          </h3>
+          <span class="form-shipped__text">
+            Специалисты свяжутся с вами в ближайшее время и помогут в оформлении записи
+          </span>
+        </div>
+      </div>
+    </div>
+
   </header>
 
   <main class="main">
@@ -153,12 +343,14 @@
               Проходите обучение как вам удобно — в группе выходного дня, по вечерам или онлайн
             </p>
 
-            <a class="hero__btn btn" href="#form">
+            <a class="hero__btn btn" href="#form-section">
               Записаться
             </a>
           </div>
         </div>
       </div>
+
+      <img class="hero__img" src="images/decor/asd.png" alt="Машина">
 
       <div class="hero__line">
         <span class="hero__line-text">
@@ -203,6 +395,44 @@
                 </span>
               </li>
             </ul>
+
+            <div class="addresses__swiper swiper">
+              <div class="addresses__swiper-wrapper swiper-wrapper">
+                <div class="addresses__slide swiper-slide">
+                  <div class="addresses__content-item addresses__content-item--slide">
+                    <span class="addresses__content-text">
+                      Пр. Первый, 31–1
+                    </span>
+                  </div>
+                </div>
+
+                <div class="addresses__slide swiper-slide">
+                  <div class="addresses__content-item addresses__content-item--slide">
+                    <span class="addresses__content-text">
+                      Ул. Вторая, 5–1
+                    </span>
+                  </div>
+                </div>
+
+                <div class="addresses__slide swiper-slide">
+                  <div class="addresses__content-item addresses__content-item--slide">
+                    <span class="addresses__content-text">
+                      Пр. Третий, 11–1
+                    </span>
+                  </div>
+                </div>
+
+                <div class="addresses__slide swiper-slide">
+                  <div class="addresses__content-item addresses__content-item--slide">
+                    <span class="addresses__content-text">
+                      Ул. Четвертая, 22–1
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
 
           <div class="addresses__content" data-tabs-target="autodrom">
@@ -218,18 +448,173 @@
                 </span>
               </li>
             </ul>
+
+            <div class="addresses__swiper swiper">
+              <div class="addresses__swiper-wrapper swiper-wrapper">
+                <div class="addresses__slide swiper-slide">
+                  <div class="addresses__content-item addresses__content-item--slide">
+                    <span class="addresses__content-text">
+                      Ул. Бабушкинского, д. 119
+                    </span>
+                  </div>
+                </div>
+
+                <div class="addresses__slide swiper-slide">
+                  <div class="addresses__content-item addresses__content-item--slide">
+                    <span class="addresses__content-text">
+                      Ул. Репищева, д. 14
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="team">
+    <!-- <section class="team">
       <div class="container">
+        <div class="team__inner">
+          <h2 class="team__title title">
+            Наши инструкторы
+          </h2>
 
+          <div class="team__swiper swiper">
+
+            <div class="swiper-wrapper">
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-info">
+                  <h3 class="team__slide-title">
+                    Любимов Игорь Юрьевич
+                  </h3>
+                  <span class="team__slide-experience">
+                    Стаж вождения с 1996 г.
+                  </span>
+                  <span class="team__slide-position">
+                    Инструктор с 2002 г.
+                  </span>
+                </div>
+
+                <img class="team__slide-img" src="images/team/1.jpg" alt="Любимов Игорь Юрьевич">
+              </div>
+
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-info">
+                  <h3 class="team__slide-title">
+                    Любимов Игорь Юрьевич
+                  </h3>
+                  <span class="team__slide-experience">
+                    Стаж вождения с 1996 г.
+                  </span>
+                  <span class="team__slide-position">
+                    Инструктор с 2002 г.
+                  </span>
+                </div>
+
+                <img class="team__slide-img" src="images/team/1.jpg" alt="Любимов Игорь Юрьевич">
+              </div>
+
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-info">
+                  <h3 class="team__slide-title">
+                    Любимов Игорь Юрьевич
+                  </h3>
+                  <span class="team__slide-experience">
+                    Стаж вождения с 1996 г.
+                  </span>
+                  <span class="team__slide-position">
+                    Инструктор с 2002 г.
+                  </span>
+                </div>
+
+                <img class="team__slide-img" src="images/team/1.jpg" alt="Любимов Игорь Юрьевич">
+              </div>
+
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-info">
+                  <h3 class="team__slide-title">
+                    Любимов Игорь Юрьевич
+                  </h3>
+                  <span class="team__slide-experience">
+                    Стаж вождения с 1996 г.
+                  </span>
+                  <span class="team__slide-position">
+                    Инструктор с 2002 г.
+                  </span>
+                </div>
+
+                <img class="team__slide-img" src="images/team/1.jpg" alt="Любимов Игорь Юрьевич">
+              </div>
+
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-info">
+                  <h3 class="team__slide-title">
+                    Любимов Игорь Юрьевич
+                  </h3>
+                  <span class="team__slide-experience">
+                    Стаж вождения с 1996 г.
+                  </span>
+                  <span class="team__slide-position">
+                    Инструктор с 2002 г.
+                  </span>
+                </div>
+
+                <img class="team__slide-img" src="images/team/1.jpg" alt="Любимов Игорь Юрьевич">
+              </div>
+
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-info">
+                  <h3 class="team__slide-title">
+                    Любимов Игорь Юрьевич
+                  </h3>
+                  <span class="team__slide-experience">
+                    Стаж вождения с 1996 г.
+                  </span>
+                  <span class="team__slide-position">
+                    Инструктор с 2002 г.
+                  </span>
+                </div>
+
+                <img class="team__slide-img" src="images/team/1.jpg" alt="Любимов Игорь Юрьевич">
+              </div>
+
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-info">
+                  <h3 class="team__slide-title">
+                    Любимов Игорь Юрьевич
+                  </h3>
+                  <span class="team__slide-experience">
+                    Стаж вождения с 1996 г.
+                  </span>
+                  <span class="team__slide-position">
+                    Инструктор с 2002 г.
+                  </span>
+                </div>
+
+                <img class="team__slide-img" src="images/team/1.jpg" alt="Любимов Игорь Юрьевич">
+              </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="faq">
+      <div class="faq__wrap">
+        <h2 class="faq__title faq__title--mobile title">
+          Часто задаваемые вопросы
+        </h2>
+        <img class="faq__img" src="images/decor/car.png" alt="Машина">
+      </div>
+
       <div class="container">
         <div class="faq__inner">
           <h2 class="faq__title title">
@@ -240,9 +625,9 @@
             <li class="faq__item">
               <div class="accordion">
                 <button class="accordion__btn">
-                  <h3 class="accordion__descr">
+                  <span class="accordion__descr">
                     Если прописка не в Санкт-Петербурге, могу ли я обучаться и сдавать экзамены в этом городе?
-                  </h3>
+                  </span>
                   <span class="accordion__rows"></span>
                 </button>
 
@@ -261,9 +646,9 @@
             <li class="faq__item">
               <div class="accordion">
                 <button class="accordion__btn">
-                  <h3 class="accordion__descr">
+                  <span class="accordion__descr">
                     Какие документы нужны для поступления?
-                  </h3>
+                  </span>
                   <span class="accordion__rows"></span>
                 </button>
 
@@ -282,9 +667,9 @@
             <li class="faq__item">
               <div class="accordion">
                 <button class="accordion__btn">
-                  <h3 class="accordion__descr">
+                  <span class="accordion__descr">
                     На каких автомобилях проходит обучение?
-                  </h3>
+                  </span>
                   <span class="accordion__rows"></span>
                 </button>
 
@@ -303,9 +688,9 @@
             <li class="faq__item">
               <div class="accordion">
                 <button class="accordion__btn">
-                  <h3 class="accordion__descr">
+                  <span class="accordion__descr">
                     Можно ли заниматься теорией и практикой в разных филиалах?
-                  </h3>
+                  </span>
                   <span class="accordion__rows"></span>
                 </button>
 
@@ -324,10 +709,10 @@
             <li class="faq__item">
               <div class="accordion">
                 <button class="accordion__btn">
-                  <h3 class="accordion__descr">
+                  <span class="accordion__descr">
                     С какого возраста я могу приступить к обучение и сдавать экзамен в ГИБДД на получение водительского
                     удостоверения?
-                  </h3>
+                  </span>
                   <span class="accordion__rows"></span>
                 </button>
 
@@ -381,14 +766,22 @@
       </div>
     </section>
 
-    <section class="connection" style="background-image: url(images/decor/connection-car.png);" id="form">
+    <section class="connection" style="background-image: url(images/decor/connection-car.png);" id="form-section">
+      <div class="connection__wrap">
+        <h2 class="connection__title connection__title--mobile title">
+          Свяжитесь с нами!
+        </h2>
+
+        <img class="connection__img" src="images/decor/connection-bg.png" alt="">
+      </div>
+
       <div class="container">
         <div class="connection__inner">
           <h2 class="connection__title title">
             Свяжитесь с нами!
           </h2>
 
-          <form class="form" action="#">
+          <form class="form" name="form" id="form">
             <h3 class="form__descr">
               Оставьте свои контактные данные
             </h3>
@@ -402,7 +795,8 @@
 
               <label class="form__label">
                 <span class="sr-only">Введите свой номер телефона</span>
-                <input class="form__input" type="tel" name="phone" placeholder="Телефон" required>
+                <input class="form__input" type="text" name="phone" data-validate-field="tel" placeholder="Телефон"
+                  required>
                 <span class="form__input-line"></span>
               </label>
             </div>
@@ -412,9 +806,9 @@
                 <input class="form__input-checkbox" type="checkbox" required>
                 <span class="form__checkbox"></span>
 
-                <p class="form__agreement-text">
+                <span class="form__agreement-text">
                   Я согласен <a class="form__agreement-link" href="#">с политикой конфиденциальности</a>
-                </p>
+                </span>
               </label>
             </div>
 
@@ -431,7 +825,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
-        <a class="logo" href="#">
+        <a class="footer__logo logo" href="#">
           <img class="logo__img" src="images/logo-white.svg" width="85" height="30" alt="Логотип">
         </a>
 
@@ -491,6 +885,9 @@
               (812) 950–32–18
             </a>
             <a class="footer__bottom-link" href="tel:8126121122">
+              <svg>
+                <use xlink:href="images/sprite.svg#icon-phone"></use>
+              </svg>
               (812) 612–11–22
             </a>
           </div>
@@ -498,7 +895,7 @@
           <a class="footer__email" href="mailto:info@asp.ru">info@asp.ru</a>
         </div>
 
-        <ul class="social">
+        <ul class="footer__social social">
           <li class="social__item">
             <a class="social__link" target="_blank" href="https://www.instagram.com/">
               <svg>

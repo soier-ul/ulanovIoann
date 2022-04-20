@@ -6,9 +6,15 @@
 @import 'keyframes';
 
 .header {
+  position: relative;
+  z-index: 50;
 
   &__main {
     background-color: $white;
+
+    @include max-w($md) {
+      background-color: #fff;
+    }
   }
 
   &__main-inner {
@@ -16,16 +22,35 @@
     align-items: center;
     justify-content: space-between;
     padding: 30px 0;
+
+    @include max-w($md) {
+      justify-content: flex-start;
+      padding: 18px 0;
+    }
   }
 
   &__main-list {
     display: flex;
+
+    @include max-w($md) {
+      margin-left: auto;
+      margin-right: 30px;
+    }
   }
 
   &__main-item {
     margin-right: 60px;
     display: flex;
     align-items: center;
+
+    @include max-w($lg) {
+      margin-right: 30px;
+    }
+
+    @include max-w($md) {
+      display: none;
+      margin-right: 0;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -36,11 +61,28 @@
       height: 18px;
       fill: $red;
     }
+
+    &--location {
+      display: flex;
+    }
   }
 
   &__dropdown {
     position: relative;
     z-index: 20;
+
+    @include max-w($md) {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+
+      @include max-w($md) {
+        display: block;
+        margin-right: 30px;
+      }
+    }
   }
 
   &__dropdown-button {
@@ -127,6 +169,14 @@
     align-items: center;
     margin-right: 10px;
 
+    @include max-w($lg) {
+      font-size: 14px;
+    }
+
+    @include max-w($md) {
+      display: none;
+    }
+
     &:last-child {
       margin-right: 0;
     }
@@ -138,17 +188,31 @@
 
   &__bottom {
     background-color: #fff;
-    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 15px 30px 0 rgba(0, 0, 0, 0.1);
   }
 
   &__bottom-inner {
     padding: 25px 0;
+
+    @include max-w($md) {
+      display: flex;
+      align-items: center;
+      padding: 0px 0 10px 0;
+    }
+
+    @include max-w($xs) {
+      justify-content: space-between;
+    }
   }
 
   &__bottom-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include max-w($md) {
+      display: none;
+    }
   }
 
   &__bottom-item {
@@ -167,18 +231,105 @@
       color: $green;
     }
   }
+
+  &__btn {
+    @include max-w($md) {
+      margin-right: 30px;
+    }
+
+    @include max-w($xs) {
+      display: none;
+    }
+  }
+
+  &__bottom-tel {
+    display: none;
+
+    @include max-w($md) {
+      width: 45px;
+      height: 45px;
+      border-radius: 9px;
+      background-color: $green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        width: 22px;
+        height: 22px;
+        fill: #fff;
+        transform: rotate(270deg);
+      }
+    }
+  }
 }
 
 .hero {
   background-repeat: no-repeat;
-  background-size: 44%;
-  background-position: right 50%;
+  background-size: 38%;
+  background-position: right top;
+  margin-top: 90px;
+  overflow-x: hidden;
+
+  @include max-w($lg) {
+    margin-top: 35px;
+    background-size: 44%;
+  }
+
+  @include max-w($sm) {
+    background-size: 0;
+    margin-top: 20px;
+  }
 
   &__inner {
-    min-height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 410px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 645px;
+      height: 350px;
+      right: -150px;
+      bottom: 20px;
+      background-image: url(../images/decor/hero-car.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      @include max-w($xl) {
+        right: 0;
+        width: 500px;
+      }
+
+      @include max-w($lg) {
+        right: 60px;
+        height: 275px;
+      }
+
+      @include max-w($md) {
+        width: 410px;
+        height: 170px;
+        bottom: 20px;
+        right: 80px;
+      }
+
+      @include max-w($sm) {
+        display: none;
+      }
+    }
+
+    @include max-w($lg) {
+      min-height: 320px;
+      padding-bottom: 30px;
+    }
+
+    @include max-w($md) {
+      min-height: 0;
+    }
   }
 
   &__content {
@@ -186,15 +337,42 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @include max-w($lg) {
+      max-width: 450px;
+    }
+
+    @include max-w($md) {
+      max-width: 330px;
+    }
+
+    @include max-w($sm) {
+      max-width: 100%;
+    }
   }
 
   &__title {
     margin-bottom: 20px;
+
+    @include max-w($md) {
+      margin-bottom: 10px;
+    }
   }
 
   &__text {
     margin-bottom: 20px;
     line-height: 1.3;
+
+    @include max-w($md) {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+  }
+
+  &__btn {
+    @include max-w($xs) {
+      width: 100%;
+    }
   }
 
   &__line {
@@ -203,6 +381,10 @@
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
+
+    @include max-w($md) {
+      padding: 15px 0;
+    }
 
     &:hover {
       .hero__line-text {
@@ -219,27 +401,69 @@
     display: inline-block;
     padding-left: 100%;
     animation: line 20s linear infinite;
+
+    @include max-w($md) {
+      font-size: 22px;
+    }
+  }
+
+  &__img {
+    max-height: 350px;
+    width: 100%;
+    object-fit: contain;
+    object-position: right;
+    margin-left: auto;
+    display: none;
+
+    @include max-w($sm) {
+      display: block;
+    }
   }
 }
 
 .addresses {
   padding: 75px 0;
 
+  @include max-w($md) {
+    padding: 35px 0;
+  }
+
+  @include max-w($sm) {
+    background-color: $white;
+  }
+
   &__title {
     margin-bottom: 70px;
     text-align: center;
+
+    @include max-w($md) {
+      margin-bottom: 40px;
+    }
   }
 
   &__tabs {
     background-color: $white;
     padding: 70px 80px;
     border-radius: 10px;
+
+    @include max-w($lg) {
+      padding: 60px 30px;
+    }
+
+    @include max-w($sm) {
+      padding: 0;
+    }
   }
 
   &__buttons {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
+
+    @include max-w($xs) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__btn {
@@ -250,6 +474,21 @@
     margin-right: 30px;
     border-radius: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
+
+    @include max-w($sm) {
+      margin-right: 16px;
+      font-size: 14px;
+    }
+
+    @include max-w($xs) {
+      margin-right: 0;
+      margin-bottom: 20px;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
     &:hover {
       background-color: $green;
@@ -272,11 +511,19 @@
     &--active {
       display: block;
     }
+
+    &--mobile {
+      display: block;
+    }
   }
 
   &__content-list {
     display: flex;
     justify-content: center;
+
+    @include max-w($sm) {
+      display: none;
+    }
   }
 
   &__content-item {
@@ -300,29 +547,179 @@
       left: 50%;
       transform: translateX(-50%);
     }
+
+    &--slide {
+      margin: 0 auto;
+    }
   }
 
   &__content-text {
     line-height: 1.3;
     font-size: 20px;
     font-weight: 700;
+
+    @include max-w($md) {
+      font-size: 16px;
+    }
+  }
+
+  &__swiper {
+    display: none;
+
+    @include max-w($sm) {
+      display: block;
+    }
+  }
+
+  &__swiper-wrapper {
+    margin-bottom: 26px;
+  }
+
+  .swiper-pagination {
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include max-w($xs) {
+      justify-content: flex-start;
+    }
+  }
+
+  .swiper-pagination-current {
+    color: $red;
+    font-size: 20px;
+  }
+}
+
+.team {
+  padding: 75px 0 125px;
+
+  &__title {
+    max-width: 360px;
+  }
+
+  &__inner {
+    display: flex;
+  }
+
+  &__swiper {
+    // overflow: visible;
+    // overflow-y: visible;
+    padding-bottom: 120px;
+    // overflow-x: visible;
+  }
+
+  &__slide {
+    display: flex;
+  }
+
+  .swiper-slide-active {
+
+    .team__slide-info {
+      transform: translateX(0);
+    }
+
+    .team__slide-img {
+      transform: scaleX(1.35) scaleY(1.6) translateY(37px) translateX(24px);
+      border-radius: 0 10px 10px 10px;
+    }
+  }
+
+  &__slide-info {
+    max-width: 280px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $white;
+    text-align: center;
+    transform: translateX(-10000%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__slide-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: $black;
+    margin-bottom: 15px;
+    max-width: 240px;
+  }
+
+  &__slide-experience {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__slide-img {
+    width: 190px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.3s ease-in-out;
   }
 }
 
 .faq {
   padding: 75px 0;
   background: linear-gradient(to right, $green 55%, transparent 55%);
+  position: relative;
+  z-index: 5;
+
+  @include max-w($md) {
+    padding: 35px 0;
+  }
+
+  @include max-w($sm) {
+    padding-top: 0;
+    background: none;
+    background-color: #fff;
+  }
 
   &__inner {
     display: flex;
     justify-content: space-between;
   }
 
+  &__wrap {
+    padding: 80px 15px;
+    flex-direction: column;
+    align-items: center;
+    background-color: $green;
+    margin-bottom: 40px;
+    display: none;
+
+    @include max-w($sm) {
+      display: flex;
+    }
+
+    @include max-w($xs) {
+      padding: 60px 15px;
+    }
+  }
+
+  &__img {
+    max-width: 500px;
+    width: 100%;
+    max-height: 255px;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+
+    @include max-w($xs) {
+      height: 145px;
+    }
+  }
+
   &__title {
     color: #fff;
     max-width: 400px;
     position: relative;
-    z-index: 5;
+    margin-right: 30px;
 
     &::before {
       content: '';
@@ -335,7 +732,27 @@
       background-position: center;
       top: 265px;
       right: -80px;
-      z-index: 5;
+      z-index: -1;
+
+      @include max-w($lg) {
+        height: 270px;
+        width: 500px;
+        top: 180px;
+      }
+    }
+
+    @include max-w($sm) {
+      display: none;
+    }
+
+    &--mobile {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 40px;
+
+      &::before {
+        display: none;
+      }
     }
   }
 
@@ -356,9 +773,17 @@
 .map {
   padding: 100px 0;
 
+  @include max-w($md) {
+    padding: 35px 0;
+  }
+
   &__title {
     text-align: center;
     margin-bottom: 75px;
+
+    @include max-w($md) {
+      margin-bottom: 40px;
+    }
   }
 
   &__menu {
@@ -445,6 +870,12 @@
   position: relative;
   z-index: 5;
 
+  @include max-w($md) {
+    padding-top: 35px;
+    background-size: 0;
+    background-color: $white;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -456,9 +887,46 @@
     z-index: -1;
   }
 
+  &__wrap {
+    display: none;
+
+    @include max-w($md) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $green;
+      padding: 80px 15px;
+      margin-bottom: 40px;
+    }
+
+    @include max-w($xs) {
+      padding: 60px 15px;
+    }
+  }
+
+  &__img {
+    max-width: 500px;
+    width: 100%;
+    max-height: 200px;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
   &__title {
     color: #fff;
     max-width: 485px;
+
+    @include max-w($md) {
+      display: none;
+    }
+
+    &--mobile {
+      @include max-w($md) {
+        display: block;
+        margin-bottom: 40px;
+      }
+    }
   }
 
   &__inner {
@@ -466,6 +934,11 @@
     justify-content: space-between;
     position: relative;
     margin-bottom: 50px;
+
+    @include max-w($md) {
+      justify-content: center;
+      padding-bottom: 30px;
+    }
 
     &::before {
       content: '';
@@ -479,6 +952,23 @@
       left: -200px;
       bottom: -50px;
       z-index: -1;
+
+      @include max-w($xl) {
+        width: 700px;
+        height: 280px;
+        left: -20px;
+        bottom: -30px;
+      }
+
+      @include max-w($lg) {
+        width: 460px;
+        height: 185px;
+        left: 0;
+      }
+
+      @include max-w($md) {
+        display: none;
+      }
     }
   }
 }
@@ -487,18 +977,59 @@
   background-color: $black-600;
   padding: 85px 0 145px;
 
+  @include max-w($lg) {
+    padding: 50px 0 75px;
+  }
+
+  @include max-w($md) {
+    padding: 20px 0 75px;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 70px;
+
+    @include max-w($lg) {
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
+
+    @include max-w($sm) {
+      align-items: flex-start;
+    }
+  }
+
+  &__logo {
+    @include max-w($lg) {
+      margin-bottom: 30px;
+    }
   }
 
   &__list {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include max-w($sm) {
+      display: inline-block;
+      column-count: 2;
+    }
   }
 
   &__item {
     margin-right: 45px;
+
+    @include max-w($lg) {
+      margin-right: 25px;
+      margin: 8px 25px 8px 0;
+    }
+
+    @include max-w($sm) {
+      margin: 0;
+      margin-bottom: 20px;
+    }
 
     &:last-child {
       margin-right: 0;
@@ -511,6 +1042,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include max-w($lg) {
+      flex-direction: column-reverse;
+    }
+
+    @include max-w($sm) {
+      align-items: flex-start;
+    }
   }
 
   &__link {
@@ -520,12 +1059,39 @@
 
   &__connection {
     display: flex;
+    align-items: center;
+
+    @include max-w($lg) {
+      margin-bottom: 30px;
+    }
+
+    @include max-w($sm) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__links {
     display: flex;
     align-items: center;
     margin-right: 60px;
+
+    @include max-w($lg) {
+      margin-right: 30px;
+    }
+
+    @include max-w($sm) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__social {
+    @include max-w($lg) {
+      margin-bottom: 30px;
+    }
   }
 
   &__bottom-link {
@@ -533,16 +1099,33 @@
     color: #fff;
     font-size: 20px;
     margin-right: 10px;
+    position: relative;
+    padding-left: 34px;
+
+    @include max-w($sm) {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
 
     &:last-child {
       margin-right: 0;
+      margin-bottom: 0;
+
+      svg {
+        display: none;
+
+        @include max-w($sm) {
+          display: block;
+        }
+      }
     }
 
     svg {
       width: 24px;
       height: 24px;
       fill: $green;
-      margin-right: 10px;
+      position: absolute;
+      left: 0;
     }
   }
 

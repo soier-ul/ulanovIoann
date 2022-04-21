@@ -592,64 +592,236 @@
 
 .team {
   padding: 75px 0 125px;
+  overflow-x: hidden;
 
-  &__container {
-    max-width: 1620px;
-    margin: 0 auto;
-    padding: 0 15px;
+  @include max-w($md) {
+    padding: 30px 0 60px;
+  }
+
+  @include max-w($xs) {
+    padding: 30px 0;
   }
 
   &__title {
-    max-width: 360px;
+    max-width: 390px;
     width: 100%;
-    flex-shrink: 0;
+    color: #fff;
+    z-index: 5;
+    position: relative;
+    padding: 40px 15px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 1000px;
+      height: 210px;
+      background-color: $green;
+      right: 0;
+      top: 0;
+      z-index: -1;
+
+      @include max-w($lg) {
+        right: -250px;
+      }
+
+      @include max-w($md) {
+        display: none;
+      }
+    }
+
+    @include max-w($lg) {
+      max-width: 340px;
+    }
+
+    @include max-w($md) {
+      color: $black;
+      padding: 0;
+      margin-bottom: 40px;
+      text-align: center;
+    }
   }
 
   &__inner {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    position: relative;
+    z-index: 5;
+
+    @include max-w($md) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 640px;
+      height: 130px;
+      background-color: $white;
+      z-index: -1;
+      right: -290px;
+      bottom: 100px;
+      border-radius: 0 12px 12px 0;
+
+      @include max-w($lg) {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    line-height: 1.4;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-width: 630px;
+    width: 100%;
+
+    @include max-w($md) {
+      position: static;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    @include max-w($xs) {
+      text-align: left;
+    }
+
+    p {
+      @include max-w($sm) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__text-more {
+
+    @include max-w($sm) {
+      display: none;
+    }
+
+    &--active {
+      display: inline-block;
+    }
+  }
+
+  &__text-btn {
+    font-weight: 600;
+    color: $green;
+    position: relative;
+    padding-right: 16px;
+    display: none;
+    @include area;
+
+    @include max-w($sm) {
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include max-w($xs) {
+      margin: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-image: url(../images/icons/chevron.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      right: 0;
+      top: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    &--active {
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   &__swiper {
-    padding-bottom: 195px;
-    // overflow: initial;
+    height: 385px;
+    width: 100%;
+    z-index: 10;
+
+    @include max-w($lg) {
+      max-width: 580px;
+      margin-right: 0;
+    }
+
+    @include max-w($md) {
+      margin-right: auto;
+      height: 500px;
+    }
   }
 
   &__swiper-buttons {
     position: absolute;
-    max-width: 310px;
-    width: 100%;
     display: flex;
     align-items: center;
     height: 50px;
     right: 0;
+    top: 215px;
+
+    @include max-w($lg) {
+      left: 0;
+    }
+
+    @include max-w($md) {
+      top: unset;
+      bottom: 0;
+      justify-content: center;
+    }
   }
 
   &__slide {
     display: flex;
-  }
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
+    position: relative;
 
-  .swiper {
-    // overflow: initial;
+    @include max-w($md) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
   }
 
   .swiper-slide-active {
 
     .team__slide-info {
       display: flex;
+
+      @include max-w($md) {
+        border-radius: 0 0 12px 12px;
+      }
     }
 
     .team__slide-img {
-      transform: scaleY(1.92) translateY(48px);
       border-radius: 0 12px 12px 12px;
       width: 300px;
+      height: 385px;
+
+      @include max-w($md) {
+        width: 290px;
+        height: 280px;
+        border-radius: 12px 12px 0 0;
+      }
     }
   }
 
   &__arrows {
     display: flex;
     align-items: center;
+
+    @include max-w($md) {
+      display: none;
+    }
   }
 
   &__arrow {
@@ -665,6 +837,10 @@
     &:hover {
       svg {
         fill: $red;
+
+        @include max-w($md) {
+          fill: $black;
+        }
       }
     }
 
@@ -688,22 +864,30 @@
 
   &__slide-info {
     max-width: 280px;
-    padding: 40px 20px;
-    display: flex;
+    width: 100%;
+    padding: 47px 20px;
     flex-direction: column;
     align-items: center;
     background-color: $white;
     text-align: center;
     display: none;
-    transition: width 0.2s ease-in-out, transform 0.3s ease-in-out;
+
+    @include max-w($md) {
+      padding: 20px 0;
+      max-width: 290px;
+    }
   }
 
   &__slide-title {
     font-weight: 700;
     font-size: 20px;
     color: $black;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     max-width: 240px;
+
+    @include max-w($xs) {
+      margin-bottom: 10px;
+    }
   }
 
   &__slide-experience {
@@ -717,7 +901,7 @@
     border-radius: 12px;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out;
   }
 
   .swiper-pagination {
@@ -725,7 +909,19 @@
     display: flex;
     align-items: center;
     width: auto;
-    margin-right: 140px;
+    margin-right: 120px;
+
+    @include max-w($xl) {
+      margin-right: 40px;
+    }
+
+    @include max-w($md) {
+      margin: 0;
+    }
+
+    @include max-w($xs) {
+      margin-right: auto;
+    }
   }
 
   .swiper-button-disabled {
@@ -840,7 +1036,7 @@
 }
 
 .map {
-  padding: 100px 0;
+  padding-top: 100px;
 
   @include max-w($md) {
     padding: 35px 0;
@@ -934,10 +1130,20 @@
 .connection {
   background-repeat: no-repeat;
   background-size: 68%;
-  background-position: left top;
+  background-position: left -17%;
   padding-top: 70px;
   position: relative;
   z-index: 5;
+  padding-top: 210px;
+
+  @include max-w($xl) {
+    background-position: left -32%;
+  }
+
+  @include max-w($lg) {
+    background-position: left -28%;
+    padding-top: 150px;
+  }
 
   @include max-w($md) {
     padding-top: 35px;

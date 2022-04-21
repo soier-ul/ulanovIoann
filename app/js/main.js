@@ -1,19 +1,4 @@
 $(function () {
-
-  $('#form').on('submit', function () {
-    $.ajax({
-      type: "POST",
-      url: "mail/mail.php",
-      data: $(this).serialize()
-    }).done(function () {
-      $('.overlay').toggleClass('overlay--active');
-      $('.form-shipped').toggleClass('form-shipped--active');
-      $(this).find('input').val('');
-      $('#form').trigger('reset');
-    });
-    return false;
-  });
-
   $('.header__dropdown-button').on('click', function () {
     $('.header__dropdown-list').toggleClass('header__dropdown-list--active');
 
@@ -70,9 +55,7 @@ $(function () {
   });
 
   const teamSwiper = new Swiper('.team__swiper', {
-    // slidesPerView: 4,
-    loop: true,
-    centeredSlides: true,
+    slidesPerView: 1,
     spaceBetween: 20,
 
     pagination: {
@@ -105,6 +88,20 @@ $(function () {
       el: ".swiper-pagination",
       type: "fraction",
     },
+  });
+
+  const textBtn = document.querySelector('.team__text-btn');
+  const textMore = document.querySelector('.team__text-more');
+
+  $('.team__text-btn').on('click', function () {
+    $('.team__text-more').toggleClass('team__text-more--active');
+    $('.team__text-btn').toggleClass('team__text-btn--active');
+
+    if ((this).classList.contains('team__text-btn--active')) {
+      (this).textContent = 'Скрыть';
+    } else {
+      (this).textContent = 'Читать больше';
+    }
   });
 });
 
